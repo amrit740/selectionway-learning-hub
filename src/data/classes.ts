@@ -20,14 +20,14 @@ export const subjects: Subject[] = ['General Studies', 'Maths', 'Science', 'Reas
 export const generalStudiesTopics: GeneralStudiesTopic[] = ['Polity', 'History', 'Economics', 'Geography', 'Static GK'];
 export const scienceTopics: ScienceTopic[] = ['Physics', 'Chemistry', 'Biology'];
 
-// Generate classes with sub-topics
+// Generate classes with sub-topics - 50 classes per section
 const generateClasses = (): ClassItem[] => {
   const classes: ClassItem[] = [];
   let id = 1;
 
-  // General Studies - 2 classes per topic (10 total)
+  // General Studies - 50 classes per topic (250 total)
   generalStudiesTopics.forEach((topic) => {
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i <= 50; i++) {
       classes.push({
         id: id++,
         title: `Class ${i}`,
@@ -40,8 +40,8 @@ const generateClasses = (): ClassItem[] => {
     }
   });
 
-  // Maths - 10 classes
-  for (let i = 1; i <= 10; i++) {
+  // Maths - 50 classes
+  for (let i = 1; i <= 50; i++) {
     classes.push({
       id: id++,
       title: `Class ${i}`,
@@ -52,10 +52,9 @@ const generateClasses = (): ClassItem[] => {
     });
   }
 
-  // Science - 3-4 classes per topic (10 total)
-  const scienceClassesPerTopic = [4, 3, 3]; // Physics 4, Chemistry 3, Biology 3
-  scienceTopics.forEach((topic, topicIndex) => {
-    for (let i = 1; i <= scienceClassesPerTopic[topicIndex]; i++) {
+  // Science - 50 classes per topic (150 total)
+  scienceTopics.forEach((topic) => {
+    for (let i = 1; i <= 50; i++) {
       classes.push({
         id: id++,
         title: `Class ${i}`,
@@ -68,8 +67,8 @@ const generateClasses = (): ClassItem[] => {
     }
   });
 
-  // Reasoning - 10 classes
-  for (let i = 1; i <= 10; i++) {
+  // Reasoning - 50 classes
+  for (let i = 1; i <= 50; i++) {
     classes.push({
       id: id++,
       title: `Class ${i}`,
@@ -80,8 +79,8 @@ const generateClasses = (): ClassItem[] => {
     });
   }
 
-  // English - 10 classes
-  for (let i = 1; i <= 10; i++) {
+  // English - 50 classes
+  for (let i = 1; i <= 50; i++) {
     classes.push({
       id: id++,
       title: `Class ${i}`,
