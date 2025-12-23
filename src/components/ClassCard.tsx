@@ -15,6 +15,17 @@ const subjectColors: Record<Subject, string> = {
   'English': 'border-l-[hsl(24,95%,53%)]',
 };
 
+const subTopicBadge: Record<string, string> = {
+  'Polity': 'bg-blue-500/20 text-blue-400',
+  'History': 'bg-amber-500/20 text-amber-400',
+  'Economics': 'bg-emerald-500/20 text-emerald-400',
+  'Geography': 'bg-cyan-500/20 text-cyan-400',
+  'Static GK': 'bg-purple-500/20 text-purple-400',
+  'Physics': 'bg-orange-500/20 text-orange-400',
+  'Chemistry': 'bg-pink-500/20 text-pink-400',
+  'Biology': 'bg-green-500/20 text-green-400',
+};
+
 const ClassCard = ({ classItem, index }: ClassCardProps) => {
   const animationDelay = `${(index % 12) * 50}ms`;
 
@@ -25,9 +36,16 @@ const ClassCard = ({ classItem, index }: ClassCardProps) => {
                   hover:shadow-lg hover:shadow-primary/5 animate-fade-in-up opacity-0`}
       style={{ animationDelay, animationFillMode: 'forwards' }}
     >
-      <h3 className="font-heading font-semibold text-lg text-foreground mb-4">
-        {classItem.title}
-      </h3>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-heading font-semibold text-lg text-foreground">
+          {classItem.title}
+        </h3>
+        {classItem.subTopic && (
+          <span className={`text-xs px-2 py-1 rounded-full ${subTopicBadge[classItem.subTopic]}`}>
+            {classItem.subTopic}
+          </span>
+        )}
+      </div>
 
       <div className="flex flex-col gap-2.5">
         {/* Lecture Button */}
